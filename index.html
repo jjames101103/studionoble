@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudioNoble — Copy that answers the question people actually have</title>
+<meta name="description" content="A one-person copy studio in Baltimore. I find the exact place your words lose people, then rewrite it. Finished copy, not proposals.">
+<meta property="og:title" content="StudioNoble — Copy studio, Baltimore">
+<meta property="og:description" content="I find the exact place your words lose people, then rewrite it. Finished copy, not proposals.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2317130F'/><text y='.9em' x='50%25' text-anchor='middle' font-size='62' font-family='Georgia,serif' fill='%23E08356'>N</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF7F2;
+  --paper-2:#F3EEE6;
+  --ink:#17130F;
+  --muted:#6B625A;
+  --accent:#A8471F;
+  --accent-soft:#F0E0D6;
+  --line:rgba(23,19,15,.14);
+  --shadow:0 1px 2px rgba(23,19,15,.04),0 8px 30px rgba(23,19,15,.06);
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --maxw:1080px;
+}
+:root:not([data-theme="light"]){
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131110;
+    --paper-2:#1B1817;
+    --ink:#F2EDE6;
+    --muted:#A69A8D;
+    --accent:#E08356;
+    --accent-soft:#2E211A;
+    --line:rgba(242,237,230,.15);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131110;
+  --paper-2:#1B1817;
+  --ink:#F2EDE6;
+  --muted:#A69A8D;
+  --accent:#E08356;
+  --accent-soft:#2E211A;
+  --line:rgba(242,237,230,.15);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 34px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+.narrow{max-width:720px}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.08;margin:0}
+h1{font-size:clamp(2.6rem,7vw,4.6rem)}
+h2{font-size:clamp(2rem,4.6vw,3.1rem)}
+h3{font-size:clamp(1.3rem,2.4vw,1.6rem);line-height:1.2}
+p{margin:0 0 1.1em}
+em{font-style:italic}
+
+.eyebrow{
+  font-family:var(--sans);font-size:.75rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 1.4rem;display:flex;align-items:center;gap:.7rem;
+}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--line);max-width:120px}
+
+/* ---------- nav ---------- */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s ease;
+}
+header.nav.stuck{border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:66px}
+.brand{font-family:var(--serif);font-size:1.3rem;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:1.8rem}
+.nav-links a{
+  font-size:.88rem;text-decoration:none;color:var(--muted);
+  transition:color .2s ease;position:relative;
+}
+.nav-links a:hover{color:var(--ink)}
+@media (max-width:720px){.nav-links .hide-sm{display:none}}
+
+.theme-btn{
+  background:none;border:1px solid var(--line);color:var(--muted);
+  width:34px;height:34px;border-radius:99px;cursor:pointer;
+  display:grid;place-items:center;transition:.2s ease;flex:none;
+}
+.theme-btn:hover{color:var(--ink);border-color:var(--ink)}
+.theme-btn svg{width:15px;height:15px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--sans);font-size:.92rem;font-weight:500;
+  padding:.85rem 1.5rem;border-radius:99px;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;transition:.22s ease;white-space:nowrap;
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:15px;height:15px;flex:none}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(4rem,11vw,8rem) 0 clamp(3rem,7vw,5rem)}
+.hero h1{margin-bottom:1.6rem;max-width:14ch}
+.hero h1 .accent{color:var(--accent);font-style:italic}
+.hero-lede{font-size:clamp(1.08rem,2vw,1.28rem);color:var(--muted);max-width:52ch;margin-bottom:2.4rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.hero-note{font-size:.85rem;color:var(--muted);margin-top:1.5rem}
+
+/* ---------- rule / section ---------- */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- problem ---------- */
+.lead-statement{
+  font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.4rem);
+  line-height:1.3;max-width:24ch;margin:0 0 2rem;
+}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+@media (max-width:800px){.two-col{grid-template-columns:1fr;gap:2rem}}
+.col-body p{color:var(--muted)}
+.col-body strong{color:var(--ink);font-weight:500}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.4rem);margin-top:3rem}
+@media (max-width:800px){.steps{grid-template-columns:1fr;gap:2rem}}
+.step{border-top:1px solid var(--line);padding-top:1.4rem}
+.step-n{
+  font-family:var(--serif);font-size:2.4rem;color:var(--accent);
+  line-height:1;display:block;margin-bottom:.7rem;
+}
+.step h3{margin-bottom:.5rem}
+.step p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ---------- samples ---------- */
+.sample{
+  border:1px solid var(--line);border-radius:16px;background:var(--paper-2);
+  overflow:hidden;margin-bottom:1.3rem;
+}
+.sample-head{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.4rem;border-bottom:1px solid var(--line);flex-wrap:wrap;
+}
+.sample-label{font-size:.82rem;font-weight:600;letter-spacing:.02em}
+.sample-kind{font-size:.75rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.toggle{
+  display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--paper);
+}
+.toggle button{
+  border:0;background:none;cursor:pointer;font-family:var(--sans);
+  font-size:.78rem;font-weight:500;color:var(--muted);
+  padding:.35rem .85rem;border-radius:99px;transition:.18s ease;
+}
+.toggle button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.sample-body{padding:1.5rem 1.4rem}
+.panel[hidden]{display:none!important}
+.copy-before{color:var(--muted);font-family:var(--serif);font-size:1.15rem;line-height:1.5}
+.copy-after{font-family:var(--serif);font-size:1.22rem;line-height:1.45}
+.copy-after .hl{background:var(--accent-soft);padding:.05em .25em;border-radius:3px}
+.why{
+  margin-top:1.2rem;padding-top:1rem;border-top:1px dashed var(--line);
+  font-size:.9rem;color:var(--muted);
+}
+.why b{color:var(--ink);font-weight:600}
+.samples-note{font-size:.85rem;color:var(--muted);margin-top:1.4rem;font-style:italic}
+
+/* ---------- offer ---------- */
+.offer{
+  border:1px solid var(--line);border-radius:20px;padding:clamp(1.8rem,4vw,3rem);
+  background:var(--paper-2);box-shadow:var(--shadow);
+}
+.offer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
+.price{font-family:var(--serif);font-size:clamp(2.6rem,6vw,3.6rem);line-height:1;white-space:nowrap}
+.price small{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem;font-weight:400}
+.includes{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:.85rem}
+.includes li{display:flex;gap:.8rem;align-items:flex-start;font-size:.97rem}
+.includes svg{width:17px;height:17px;color:var(--accent);flex:none;margin-top:.28rem}
+.offer-foot{margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+
+/* ---------- honest ---------- */
+.honest{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.5rem,4vw,3rem);margin-top:2.5rem}
+@media (max-width:800px){.honest{grid-template-columns:1fr}}
+.honest-item h3{margin-bottom:.5rem;font-size:1.25rem}
+.honest-item p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--line);margin-top:2.5rem}
+details{border-bottom:1px solid var(--line)}
+summary{
+  cursor:pointer;list-style:none;padding:1.35rem 2.5rem 1.35rem 0;
+  font-size:1.03rem;font-weight:500;position:relative;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:.4rem;top:50%;width:10px;height:10px;
+  border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);
+  transform:translateY(-70%) rotate(45deg);transition:transform .25s ease;
+}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details .answer{padding:0 0 1.5rem;color:var(--muted);max-width:62ch}
+details .answer p:last-child{margin-bottom:0}
+
+/* ---------- cta ---------- */
+.cta{background:var(--ink);color:var(--paper);border-radius:20px;padding:clamp(2.2rem,6vw,4rem);text-align:center}
+.cta h2{color:var(--paper);margin-bottom:1rem}
+.cta p{color:color-mix(in srgb,var(--paper) 68%,transparent);max-width:46ch;margin:0 auto 2rem}
+.cta .btn-primary{background:var(--paper);color:var(--ink)}
+.cta-mail{display:block;margin-top:1.4rem;font-size:.88rem;color:color-mix(in srgb,var(--paper) 60%,transparent)}
+.cta-mail a{color:var(--paper)}
+
+/* ---------- footer ---------- */
+footer{padding:3rem 0 4rem;border-top:1px solid var(--line);margin-top:clamp(3rem,8vw,6rem)}
+.foot-in{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted)}
+.foot-in a{color:var(--muted);text-decoration:none}
+.foot-in a:hover{color:var(--ink)}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .btn-primary:hover{transform:none}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Studio<span>Noble</span></a>
+    <nav class="nav-links">
+      <a href="#method" class="hide-sm">Method</a>
+      <a href="#work" class="hide-sm">Work</a>
+      <a href="#offer">What it costs</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow reveal">Copy studio · Baltimore, MD</p>
+      <h1 class="reveal">Most sites lose people at <span class="accent">one specific sentence.</span></h1>
+      <p class="hero-lede reveal">I find it, then I rewrite it. You get finished copy — not a proposal, not a strategy deck, and not an invoice before you've seen anything.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="#offer">
+          See what you get
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#work">Read the samples</a>
+      </div>
+      <p class="hero-note reveal">Written by one person. You email me, I answer — there is no account manager.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow reveal">The actual problem</p>
+          <p class="lead-statement reveal">Bad copy is rarely badly written. It's usually answering a question nobody asked.</p>
+        </div>
+        <div class="col-body reveal">
+          <p>A visitor arrives already half-convinced. They like the product, or they wouldn't have clicked. What stops them is something smaller and much more specific — a price that isn't shown, a claim with no proof behind it, a promise that every competitor also makes.</p>
+          <p>So the page keeps explaining what the business believes in, while the reader is quietly asking <strong>"will this leak in my kid's backpack?"</strong> or <strong>"what does this actually cost?"</strong> — and then leaving to find out somewhere else.</p>
+          <p>That gap is findable. It's usually one paragraph, sometimes one missing sentence. <strong>Finding it is the job. Rewriting it is the easy part.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- METHOD -->
+  <section id="method">
+    <div class="wrap">
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="reveal">Three steps, and you only pay after the second one.</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-n">01</span>
+          <h3>Diagnose</h3>
+          <p>I read your site the way a buyer does — impatient, sceptical, comparing you to two other tabs. Then I tell you exactly where you lose them, in plain language.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-n">02</span>
+          <h3>Rewrite</h3>
+          <p>You get finished copy you can paste in today. Not bullet points, not "consider revising this section" — the actual words, written to fit your voice.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-n">03</span>
+          <h3>Decide</h3>
+          <p>Use it or don't. If it isn't right, say so and keep it anyway — I'd rather the work got used than sat in an inbox earning nothing for either of us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <p class="eyebrow reveal">Sample work</p>
+      <h2 class="reveal">Before, and after.</h2>
+      <p class="reveal" style="color:var(--muted);max-width:54ch;margin:1.2rem 0 2.6rem">Toggle each one. The "before" lines are the kind of copy that's on most small-business sites right now — competent, warm, and doing almost no work.</p>
+
+      <!-- sample 1 -->
+      <article class="sample reveal">
+        <div class="sample-head">
+          <div>
+            <div class="sample-label">A bike shop with a café</div>
+            <div class="sample-kind">About section</div>
+          </div>
+          <div class="toggle" role="tablist" aria-label="Before or after">
+            <button role="tab" aria-selected="false" data-target="s1-before">Before</button>
+            <button role="tab" aria-selected="true" data-target="s1-after">After</button>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div class="panel copy-before" id="s1-before" hidden>
+            <p>We are a full-service bicycle shop and café serving the local community. Our experienced staff is committed to providing quality service and a great selection of bikes and accessories. Stop in today and see the difference!</p>
+          </div>
+          <div class="panel copy-after" id="s1-after">
+            <p><span class="hl">Every good climb has a café partway up.</span></p>
+            <p>Ride the mountain passes in Italy and you'll eventually come around a bend to a small café — somewhere to stop, take an espresso standing at the bar, and get back on the bike.</p>
+            <p>There wasn't one of those on our road. So we built one.</p>
+          </div>
+          <div class="why"><b>Why it works:</b> the first version could be any bike shop in the country. The second gives the place a reason to exist — and a reason to ride out to it specifically.</div>
+        </div>
+      </article>
+
+      <!-- sample 2 -->
+      <article class="sample reveal">
+        <div class="sample-head">
+          <div>
+            <div class="sample-label">A stainless steel lunch box, $84</div>
+            <div class="sample-kind">Product page</div>
+          </div>
+          <div class="toggle" role="tablist" aria-label="Before or after">
+            <button role="tab" aria-selected="false" data-target="s2-before">Before</button>
+            <button role="tab" aria-selected="true" data-target="s2-after">After</button>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div class="panel copy-before" id="s2-before" hidden>
+            <p>Free from plastic, full of purpose. Our beautifully designed lunch boxes are better for your kids and better for the planet — made for real, messy, joyful family moments.</p>
+          </div>
+          <div class="panel copy-after" id="s2-after">
+            <p><span class="hl">Your fourth lunch box. Hopefully your last.</span></p>
+            <p>Compartments so the thing that touched the thing isn't a reason lunch comes home uneaten. Stainless, because it doesn't stain from tomato sauce or hold onto last week's tuna.</p>
+            <p>Built for the parent who has already tried the other ones.</p>
+          </div>
+          <div class="why"><b>Why it works:</b> nobody paying $84 is undecided about plastic. They're undecided about <em>you</em> — because the last three lunch boxes failed. Speak to that and the price stops being the obstacle.</div>
+        </div>
+      </article>
+
+      <!-- sample 3 -->
+      <article class="sample reveal">
+        <div class="sample-head">
+          <div>
+            <div class="sample-label">A dog collar brand with clip-on charms</div>
+            <div class="sample-kind">Homepage headline</div>
+          </div>
+          <div class="toggle" role="tablist" aria-label="Before or after">
+            <button role="tab" aria-selected="false" data-target="s3-before">Before</button>
+            <button role="tab" aria-selected="true" data-target="s3-after">After</button>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div class="panel copy-before" id="s3-before" hidden>
+            <p>Super cute stuff for your pups! Shop our collection of collars, harnesses and leashes today.</p>
+          </div>
+          <div class="panel copy-after" id="s3-after">
+            <p><span class="hl">Her collar should change as often as she does.</span></p>
+            <p>One collar. A hundred moods. Charms clip on and off in seconds, so the same collar goes spooky in October, sunny in July, and birthday-ready whenever you decide it is.</p>
+          </div>
+          <div class="why"><b>Why it works:</b> the business isn't collars — it's a collection people keep adding to. The first version sells one purchase. The second sells the next twelve.</div>
+        </div>
+      </article>
+
+      <p class="samples-note reveal">These are written as demonstrations of the method, not as client case studies. I'm not going to put someone else's logo on my site to borrow their credibility.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- OFFER -->
+  <section id="offer">
+    <div class="wrap narrow">
+      <p class="eyebrow reveal">What it costs</p>
+      <h2 class="reveal" style="margin-bottom:2.4rem">The Business Copy Refresh.</h2>
+
+      <div class="offer reveal">
+        <div class="offer-top">
+          <div>
+            <h3 style="margin-bottom:.5rem">Everything below, written for your business</h3>
+            <p style="color:var(--muted);margin:0;font-size:.95rem">Delivered by email within two hours.</p>
+          </div>
+          <div class="price">$15<small>one time · not a subscription</small></div>
+        </div>
+
+        <ul class="includes">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A rewritten <strong>About section</strong> in your voice</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A <strong>Google Business description</strong> — the one people read before they decide to visit</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Three social captions</strong> you can post this week</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A written <strong>diagnosis</strong> of what's costing you conversions — the most useful part, and the part nobody else sends</span></li>
+        </ul>
+
+        <div class="offer-foot">
+          <p style="font-size:.95rem;color:var(--muted);margin-bottom:1.4rem">
+            <strong style="color:var(--ink);font-weight:500">Why it's $15:</strong> because I'm building this studio and I'd rather earn the next job than argue about the first invoice. It isn't a discount that expires, and there's no upsell waiting on the other side.
+          </p>
+          <a class="btn btn-primary" href="https://buy.stripe.com/fZu14n1MO1Hg7or75aaIM1Z" rel="noopener">
+            Get the refresh — $15
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p style="font-size:.85rem;color:var(--muted);margin:1.2rem 0 0">Or email me first and I'll send a sample before you pay anything: <a href="mailto:studionobleai@gmail.com" style="color:var(--accent)">studionobleai@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- HONEST -->
+  <section id="honest">
+    <div class="wrap">
+      <p class="eyebrow reveal">Being straight with you</p>
+      <h2 class="reveal">What I'd want to know before hiring a stranger.</h2>
+      <div class="honest">
+        <div class="honest-item reveal">
+          <h3>It's one person.</h3>
+          <p>Jeremiah, in Baltimore. You email me and I'm the one who replies, writes the copy, and fixes it if it's wrong. Small enough to actually care how it turns out.</p>
+        </div>
+        <div class="honest-item reveal">
+          <h3>There's no wall of logos.</h3>
+          <p>This studio is new. I could fill this page with borrowed credibility, but you'd find out eventually — so instead the samples above are the argument. Judge those.</p>
+        </div>
+        <div class="honest-item reveal">
+          <h3>You see the work before you're committed.</h3>
+          <p>Ask and I'll write you something first, free, with nothing owed. It's a better test than any portfolio and it takes me less time than writing a proposal would.</p>
+        </div>
+        <div class="honest-item reveal">
+          <h3>I won't invent your facts.</h3>
+          <p>If a claim needs a number — a certification, a test result, an ingredient percentage — I'll leave a blank for you to fill rather than make one up. Copy that overpromises is a liability, not a service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap narrow">
+      <p class="eyebrow reveal">Questions</p>
+      <h2 class="reveal">Before you buy.</h2>
+      <div class="faq reveal">
+        <details>
+          <summary>How fast do I get it?</summary>
+          <div class="answer"><p>Within two hours of your order during normal hours, and by the next morning at the latest. You'll get an email asking for your website address — reply to that and the clock starts.</p></div>
+        </details>
+        <details>
+          <summary>What if I don't like it?</summary>
+          <div class="answer"><p>Tell me what's off and I'll rewrite it once, free. If it's still not right, I'll refund you and you can keep the copy anyway. I'd rather you have something usable than have won an argument about fifteen dollars.</p></div>
+        </details>
+        <details>
+          <summary>Do you use AI to write this?</summary>
+          <div class="answer">
+            <p>Yes, as a tool — alongside research, editing and judgment. I think you're entitled to a straight answer about that rather than a careful non-denial.</p>
+            <p>What it doesn't mean: nothing goes out unreviewed, I don't paste raw output, and I won't write a performance claim I can't substantiate. If you need a fully AI-free process for a particular piece, say so before we start and I'll quote it separately.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Why is it only $15? That seems too cheap.</summary>
+          <div class="answer"><p>It's a fair question and the honest answer is that I'm building a practice and I want the work. A copywriter with ten years of case studies would charge you several hundred for this, and would probably be worth it. I don't have those case studies yet, so I compete on the thing I can control — actually doing the work before you've paid for it.</p></div>
+        </details>
+        <details>
+          <summary>Can you write more than the package?</summary>
+          <div class="answer"><p>Yes — product pages, email sequences, landing pages, book descriptions, Amazon listings. Email me what you need and I'll tell you honestly whether I'm the right person for it. Sometimes the answer is no.</p></div>
+        </details>
+        <details>
+          <summary>Who actually gets my money?</summary>
+          <div class="answer"><p>Payments run through Stripe to StudioNoble, a real business in Maryland. You'll get a normal Stripe receipt with a real name on it, and there's nothing recurring — one payment, one delivery.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>Send me your website.</h2>
+        <p>I'll tell you the one place you're losing people. That part costs nothing and you're welcome to stop there.</p>
+        <a class="btn btn-primary" href="mailto:studionobleai@gmail.com?subject=Have%20a%20look%20at%20my%20site&body=Here's%20my%20website%3A%20">
+          Email me your site
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <span class="cta-mail">or write to <a href="mailto:studionobleai@gmail.com">studionobleai@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>© <span id="yr">2026</span> StudioNoble — Baltimore, Maryland</div>
+    <div><a href="mailto:studionobleai@gmail.com">studionobleai@gmail.com</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // year
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // ---- theme ----
+  var root = document.documentElement;
+  var btn  = document.getElementById('themeBtn');
+  var stored = null;
+  try { stored = localStorage.getItem('sn-theme'); } catch(e){}
+  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+
+  function currentIsDark(){
+    var attr = root.getAttribute('data-theme');
+    if (attr === 'dark') return true;
+    if (attr === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  if (btn) {
+    btn.addEventListener('click', function(){
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('sn-theme', next); } catch(e){}
+    });
+  }
+
+  // ---- sticky nav border ----
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if (!nav) return;
+    if (window.scrollY > 8) nav.classList.add('stuck'); else nav.classList.remove('stuck');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---- before / after toggles ----
+  var toggles = document.querySelectorAll('.toggle');
+  Array.prototype.forEach.call(toggles, function(group){
+    var buttons = group.querySelectorAll('button');
+    Array.prototype.forEach.call(buttons, function(b){
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call(buttons, function(other){
+          other.setAttribute('aria-selected','false');
+          var p = document.getElementById(other.getAttribute('data-target'));
+          if (p) p.hidden = true;
+        });
+        b.setAttribute('aria-selected','true');
+        var panel = document.getElementById(b.getAttribute('data-target'));
+        if (panel) panel.hidden = false;
+      });
+    });
+  });
+
+  // ---- reveal on scroll ----
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(items, function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+
+  Array.prototype.forEach.call(items, function(el, i){
+    var group = el.parentElement;
+    var delay = 0;
+    if (group && (group.classList.contains('steps') || group.classList.contains('honest'))) {
+      delay = Array.prototype.indexOf.call(group.children, el) * 90;
+    }
+    el.style.transitionDelay = delay + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
