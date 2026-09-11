@@ -133,6 +133,9 @@ header.nav.stuck{border-bottom-color:var(--line)}
 .hero-lede{font-size:clamp(1.08rem,2vw,1.28rem);color:var(--muted);max-width:52ch;margin-bottom:2.4rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
 .hero-note{font-size:.85rem;color:var(--muted);margin-top:1.5rem}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero-art{border-radius:16px;width:100%;height:auto}
+@media (max-width:800px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:340px;margin:0 auto}}
 
 /* ---------- rule / section ---------- */
 section{padding:clamp(3.5rem,8vw,6.5rem) 0}
@@ -272,18 +275,21 @@ footer{padding:3rem 0 4rem;border-top:1px solid var(--line);margin-top:clamp(3re
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow reveal">Copy studio · Baltimore, MD</p>
-      <h1 class="reveal">Most sites lose people at <span class="accent">one specific sentence.</span></h1>
-      <p class="hero-lede reveal">I find it, then I rewrite it. You get finished copy — not a proposal, not a strategy deck, and not an invoice before you've seen anything.</p>
-      <div class="hero-cta reveal">
-        <a class="btn btn-primary" href="#offer">
-          See what you get
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#work">Read the samples</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal">Copy studio · Baltimore, MD</p>
+        <h1 class="reveal">Most sites lose people at <span class="accent">one specific sentence.</span></h1>
+        <p class="hero-lede reveal">I find it, then I rewrite it. You get finished copy — not a proposal, not a strategy deck, and not an invoice before you've seen anything.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="#offer">
+            See what you get
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#work">Read the samples</a>
+        </div>
+        <p class="hero-note reveal">Written by one person. You email me, I answer — there is no account manager.</p>
       </div>
-      <p class="hero-note reveal">Written by one person. You email me, I answer — there is no account manager.</p>
+      <img class="hero-art reveal" src="hero-illustration.jpg" alt="Illustration of hands at a laptop surrounded by a lightbulb, wrench, notebook, paintbrush, and padlock, representing one person handling many small jobs" width="900" height="900">
     </div>
   </section>
 
